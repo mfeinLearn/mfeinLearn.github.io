@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "My mission to develope a Crypto CLI Application "
-date:       2018-12-06 19:59:36 +0000
+date:       2018-12-06 14:59:37 -0500
 permalink:  my_mission_to_develope_a_crypto_cli_application
 ---
 

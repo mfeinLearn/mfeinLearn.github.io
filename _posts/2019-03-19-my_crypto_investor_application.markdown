@@ -23,10 +23,10 @@ If you look at the User model you’ll see an attribute of password_digest we wi
 
 Representational State Transfer or Rest comprised of three key components:
 
-1) A client-server relationship
-2) stateless interaction
-3) Uniform Interface
-
+> 1) A client-server relationship
+> 2) stateless interaction
+> 3) Uniform Interface
+> 
 The client-server model is where the client sends a request using HTTP as a median to send out a GET request to a server. When the server gets the request it send out a responds to the client which results to what you see in your browser which can be a client. So in short Clients are giving the request to the server and the server gets the request then renders it then sends a response back to the client. 
 
 Stateless Interaction is a bit of a complicated topic but the explanation from restfulapi.net made it digestable for me where they talk about that “Stateless Interaction is where the server does not handle anything related to the users state. Client is responsible for storing and handling all application state related information on the client side”.
@@ -84,10 +84,10 @@ Test Driven Development(TDD) is in its name - doing development driven by creati
 
 How to approach TDD:
 
-1 - Write the test
-2 - Make the test fail/error out
-3 - Write the simplest code that could make the test pass.
-4 - Refactor to improve.
+> 1 - Write the test
+> 2 - Make the test fail/error out
+> 3 - Write the simplest code that could make the test pass.
+> 4 - Refactor to improve.
 
 This method of development quickens development time by a lot compared to mindlessly developing an application with no guidance and assurance that all of your methods are working as expected. 
 

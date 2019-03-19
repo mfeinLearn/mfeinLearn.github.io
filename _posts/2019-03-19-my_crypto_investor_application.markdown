@@ -65,8 +65,8 @@ Most importantly for updating and deleting something a sinatra middleware called
 
 I used the Bcrypt gem for this project. This gem is a hashing algorithm used for securing user passwords. Bcrypt does the following to secure your password:
 
-1 - It takes in your password
-2 - Creates a digital fingerprint / hash of your password (password_digest)
+1 - It takes in your password.
+2 - Creates a digital fingerprint / hash of your password (password_digest).
 3 - By adding in bcrypt to the Gemfile you are then able to use the has_secure_password method which gives us an array of methods to use. One such method is authenticate. authenticate takes in a password which is a plan string and checks it against bcrypts hashing algorithm to make sure it is the correct password. 
 4 - In doing the above this allows us to use passwords in our forms and controllers if we want to refer to out password.
 

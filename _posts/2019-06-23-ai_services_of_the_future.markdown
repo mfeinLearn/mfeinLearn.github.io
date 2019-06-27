@@ -86,6 +86,7 @@ https://github.com/mfeinLearn/snet-web-simulation/blob/master/Resources%20for%20
 By looking at our Ai and Service model associations we can demonstrate this relationship via our nested routes seen above:
 
 These are my Ai and Service Models:
+
 ```
 Ai 
    belongs_to :user
@@ -96,7 +97,7 @@ Service
    has_many :transactions
    has_many :ais, through: :transactions
    has_many :users, through: :ais
-	```
+```
 
 We can see that we could have ais be nested under services or the other vice versa because both models have many of the other. Later I plan on having transactions to be nested under ais then have services to be nested under transactions. But for specifically for this project I chose to have services to be nested under ais.
 
@@ -158,6 +159,7 @@ First I like to talk about the association of objects within the new action.
 In a nested route the creation of the association is in the new action.
 
 The following is an example of the association between the ai and the transaction:
+
 ```
 class AisController < ApplicationController
 def new

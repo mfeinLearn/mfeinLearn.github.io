@@ -86,6 +86,7 @@ https://github.com/mfeinLearn/snet-web-simulation/blob/master/Resources%20for%20
 By looking at our Ai and Service model associations we can demonstrate this relationship via our nested routes seen above:
 
 These are my Ai and Service Models:
+```
 
 Ai 
    belongs_to :user
@@ -96,16 +97,19 @@ Service
    has_many :transactions
    has_many :ais, through: :transactions
    has_many :users, through: :ais
+	 
+	```
 
 We can see that we could have ais be nested under services or the other vice versa because both models have many of the other. Later I plan on having transactions to be nested under ais then have services to be nested under transactions. But for specifically for this project I chose to have services to be nested under ais.
 
 
-                        Model
+ Model
+ 
 The Entity Relationship for this project can be found here:
 https://github.com/mfeinLearn/snet-web-simulation/blob/master/erd.pdf
 
-Relationships
 
+Relationships
 
 The Relationships of the models allow me to interconnect between different db tables to get the data that I want. I used a series of validations, scope methods, and class methods to structure the data to exactly the format that I need it to be to create a better user experience. 
 
@@ -119,13 +123,15 @@ Order is an active record sql term that will allow me to order the records. In t
 
 
 
-Validations:
+Validations
+
 Validations are used to make sure the data that is saved in your database is what you expect it to be to be able to properly process it in your controller. Their are built in validations that rails creates and developers has an opportunity to build their own as well. I have several validations one in the models and others I have defined in paritals to clean up my code. One validation that I implemented in my code is the following:
 validates :name, :description, presence: true
 This is an active record validation which is denoted by the validates helper as oppose to validate which is a custom validator.  This validation is making sure that the name and description are present before the object is accepted to be saved the database. Whichever model that is being associated to another table by a belongs_to method is required by default. 
 
 Error Messages
-    One cool part about rails is that it allows us to add error messages which can help users to understand what they need to input and in what format. I used error messages in a partial specifically within the layouts directory. In there I defined a partial called _errors.html.erb and added the following code inside of it: 
+
+   One cool part about rails is that it allows us to add error messages which can help users to understand what they need to input and in what format. I used error messages in a partial specifically within the layouts directory. In there I defined a partial called _errors.html.erb and added the following code inside of it: 
 
 <ul>
 <% object.errors.full_messages.each do |error_message| %>
@@ -154,14 +160,15 @@ First I like to talk about the association of objects within the new action.
 In a nested route the creation of the association is in the new action.
 
 The following is an example of the association between the ai and the transaction:
+```
 class AisController < ApplicationController
 def new
   @ai = Ai.new
   @transaction = @ai.transactions.build
   @transaction.build_service
-
-End
-End
+end
+end
+```
 
 If you look at the relationship between the AI and the Transaction you will see that an ai has many transactions so if we want to create an association on a collection we would need to use the build method to build that association. It would look like this:   
 @transaction = @ai.transactions.build
@@ -170,7 +177,7 @@ Where the thing that is being associated to the object in this case the service 
 
 
 The following is an example of the association between the ai and services:
-
+```
 class ServicesController < ApplicationController
   def new
     @ai = Ai.find_by_id(params[:ai_id])
@@ -184,15 +191,18 @@ class ServicesController < ApplicationController
     end
   End
 End 
+```
 
 As you can see above the ai is associated to the services similar to how an ai was associated to a transaction but in this case we are associating the ai to services and adding a dot build to build an empty service that is associated to an ai. It looks like the following:       
 @service = ai.services.build
 
-                    View 
+ View 
+ 
 The last bit of the MVC architecture that we are going to be talking about is the V in MVC which is the View. If we want to talk about helpers it have pretty cool properties. 
 For one it helps take away logic from the views. One would want to put methods in the helpers folder only if it has to deal with displaying something on the views. These helper methods are only used in the views. But their is one limitation which is that one can not use helper methods in the con
 
-Helpers -
+Helpers 
+
 I used several helpers to take away code from the views. These helpers are located in a directory called helpers. In here it is strictly for view helpers, that’s it! You can check them out here: https://github.com/mfeinLearn/snet-web-simulation/tree/master/app/helpers
 
 That is a brief summary of my project please checkout the repo for more info!

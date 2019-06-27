@@ -87,7 +87,6 @@ By looking at our Ai and Service model associations we can demonstrate this rela
 
 These are my Ai and Service Models:
 ```
-
 Ai 
    belongs_to :user
    has_many :transactions
@@ -97,7 +96,6 @@ Service
    has_many :transactions
    has_many :ais, through: :transactions
    has_many :users, through: :ais
-	 
 	```
 
 We can see that we could have ais be nested under services or the other vice versa because both models have many of the other. Later I plan on having transactions to be nested under ais then have services to be nested under transactions. But for specifically for this project I chose to have services to be nested under ais.
@@ -189,8 +187,8 @@ class ServicesController < ApplicationController
       #unnested
       @service = Service.new
     end
-  End
-End 
+  end
+end 
 ```
 
 As you can see above the ai is associated to the services similar to how an ai was associated to a transaction but in this case we are associating the ai to services and adding a dot build to build an empty service that is associated to an ai. It looks like the following:       
